@@ -24,40 +24,10 @@
   text-decoration: none;
 }
 
-.logoIcon {
-  width: 34px;
-  height: 34px;
-  border-radius: 10px;
-  background: var(--accent);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 800;
-  font-size: 16px;
-  color: white;
-  font-family: var(--font-display);
-}
-
-.logoText {
-  font-family: var(--font-display);
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--text);
-  letter-spacing: -0.3px;
-}
-
-.logoAccent {
-  color: var(--accent);
-}
-
-.logoDomain {
-  font-family: var(--font-body);
-  font-size: 11px;
-  color: var(--text-muted);
-  margin-left: 3px;
-  font-weight: 400;
-  position: relative;
-  top: -4px;
+.logoImg {
+  height: 40px;
+  width: auto;
+  display: block;
 }
 
 .tabs {
