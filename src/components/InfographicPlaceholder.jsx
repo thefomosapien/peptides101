@@ -1,6 +1,18 @@
 import styles from './InfographicPlaceholder.module.css';
 
-export default function InfographicPlaceholder({ id, title, description, aspectRatio = "16/9" }) {
+export default function InfographicPlaceholder({ id, title, description, aspectRatio = "16/9", imageSrc }) {
+  if (imageSrc) {
+    return (
+      <div id={id} className={styles.imageWrap} style={{ margin: '32px 0' }}>
+        <img
+          src={imageSrc}
+          alt={title}
+          className={styles.image}
+        />
+      </div>
+    );
+  }
+
   return (
     <div id={id} className={styles.placeholder} style={{ aspectRatio }}>
       <div className={styles.pattern} />

@@ -1,14 +1,25 @@
+import { Helmet } from 'react-helmet-async';
 import { peptides } from '../data/peptides';
 import InfographicPlaceholder from '../components/InfographicPlaceholder';
+import CTABanner from '../components/CTABanner';
 
 export default function FDAPage() {
   const approved = peptides.filter((p) => p.fdaApproved);
   const notApproved = peptides.filter((p) => !p.fdaApproved);
 
   return (
-    <section className="section section--mid">
+    <section className="section section--mid page-enter">
+      <Helmet>
+        <title>FDA Peptide Approval Status — What's Approved & What Isn't</title>
+        <meta name="description" content="Understand which peptides have FDA approval, which don't, and what those labels actually mean for your safety and access." />
+        <meta property="og:title" content="FDA Peptide Approval Status — What's Approved & What Isn't" />
+        <meta property="og:description" content="Understand which peptides have FDA approval, which don't, and what those labels actually mean for your safety and access." />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="https://peptides101.info/fda" />
+      </Helmet>
+
       <div className="text-center" style={{ marginBottom: 40 }}>
-        <h2 className="heading-2">FDA Approval Status</h2>
+        <h1 className="heading-2">FDA Approval Status</h1>
         <p className="subtitle" style={{ maxWidth: 620, margin: '0 auto' }}>
           Understanding which peptides have FDA approval is important — but "not
           approved" doesn't always mean "not safe." Here's what the labels actually mean.
@@ -112,6 +123,8 @@ export default function FDAPage() {
           ))}
         </div>
       </div>
+
+      <CTABanner />
     </section>
   );
 }

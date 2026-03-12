@@ -1,8 +1,76 @@
 import { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { quizQuestions } from '../data/quizQuestions';
 import { peptides } from '../data/peptides';
 import FDABadge from '../components/FDABadge';
 import CTABanner from '../components/CTABanner';
+
+function EmailCapture() {
+  const [email, setEmail] = useState('');
+  const [submitted, setSubmitted] = useState(() => {
+    return localStorage.getItem('peptides101_email_captured') === 'true';
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (email && email.includes('@')) {
+      localStorage.setItem('peptides101_email', email);
+      localStorage.setItem('peptides101_email_captured', 'true');
+      setSubmitted(true);
+    }
+  };
+
+  if (submitted) {
+    return (
+      <div className="card" style={{ padding: 32, textAlign: 'center', marginTop: 32, background: 'var(--accent-light)', border: '1px solid #C0E4D8' }}>
+        <div style={{ fontSize: 28, marginBottom: 10 }}>✅</div>
+        <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 20, fontWeight: 500, color: 'var(--text)', marginBottom: 8 }}>
+          You're on the list!
+        </h3>
+        <p style={{ fontSize: 14, color: 'var(--text-mid)', fontWeight: 350 }}>
+          We'll send your personalized peptide guide shortly.
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="card" style={{ padding: 32, textAlign: 'center', marginTop: 32 }}>
+      <div style={{ fontSize: 28, marginBottom: 10 }}>📬</div>
+      <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 20, fontWeight: 500, color: 'var(--text)', marginBottom: 8 }}>
+        Get your complete peptide guide delivered to your inbox
+      </h3>
+      <p style={{ fontSize: 14, color: 'var(--text-mid)', marginBottom: 20, fontWeight: 350 }}>
+        Includes detailed breakdowns, dosing insights, and provider recommendations.
+      </p>
+      <form onSubmit={handleSubmit} style={{ display: 'flex', gap: 10, maxWidth: 420, margin: '0 auto', flexWrap: 'wrap', justifyContent: 'center' }}>
+        <input
+          type="email"
+          placeholder="you@example.com"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+          style={{
+            flex: 1,
+            minWidth: 220,
+            padding: '12px 16px',
+            borderRadius: 10,
+            border: '1.5px solid var(--border)',
+            fontSize: 15,
+            fontFamily: 'var(--font-body)',
+            outline: 'none',
+            transition: 'border-color 0.2s',
+          }}
+          onFocus={(e) => { e.target.style.borderColor = 'var(--accent)'; }}
+          onBlur={(e) => { e.target.style.borderColor = 'var(--border)'; }}
+        />
+        <button type="submit" className="btn btn--primary" style={{ padding: '12px 28px' }}>
+          Send My Guide
+        </button>
+      </form>
+    </div>
+  );
+}
 
 export default function QuizPage() {
   const [step, setStep] = useState(0);
@@ -49,9 +117,14 @@ export default function QuizPage() {
   // ─── Results view ───
   if (results) {
     return (
-      <section className="section" style={{ maxWidth: 760 }}>
+      <section className="section page-enter" style={{ maxWidth: 760 }}>
+        <Helmet>
+          <title>Your Quiz Results — Peptides101.info</title>
+          <meta name="description" content="Your personalized peptide recommendations based on your health goals and preferences." />
+        </Helmet>
+
         <div className="text-center" style={{ marginBottom: 40 }}>
-          <h2 className="heading-2">Your Personalized Results</h2>
+          <h1 className="heading-2">Your Personalized Results</h1>
           <p className="subtitle">
             Based on your answers, here are the peptides that align with your goals.
           </p>
@@ -109,6 +182,8 @@ export default function QuizPage() {
           <button className="btn btn--secondary" onClick={reset}>Retake Quiz</button>
         </div>
 
+        <EmailCapture />
+
         <CTABanner />
       </section>
     );
@@ -118,9 +193,18 @@ export default function QuizPage() {
   const q = quizQuestions[step];
 
   return (
-    <section className="section" style={{ maxWidth: 620 }}>
+    <section className="section page-enter" style={{ maxWidth: 620 }}>
+      <Helmet>
+        <title>Find Your Peptide Match — Free Interactive Quiz</title>
+        <meta name="description" content="Answer a few quick questions and discover which peptides align with your health and wellness goals. Free, personalized peptide recommendations." />
+        <meta property="og:title" content="Find Your Peptide Match — Free Interactive Quiz" />
+        <meta property="og:description" content="Answer a few quick questions and discover which peptides align with your health and wellness goals." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://peptides101.info/quiz" />
+      </Helmet>
+
       <div className="text-center" style={{ marginBottom: 40 }}>
-        <h2 className="heading-2">Find Your Peptide Match</h2>
+        <h1 className="heading-2">Find Your Peptide Match</h1>
         <p className="subtitle">
           Answer {quizQuestions.length} quick questions and we'll suggest which peptides
           align with your goals.

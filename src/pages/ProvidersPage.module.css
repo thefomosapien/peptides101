@@ -1,0 +1,170 @@
+.disclosure {
+  background: var(--amber-light);
+  border: 1px solid #F0DCA0;
+  border-radius: 12px;
+  padding: 16px 20px;
+  font-size: 13px;
+  color: var(--text-mid);
+  line-height: 1.6;
+  margin-bottom: 36px;
+  font-weight: 350;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  border: 1px solid var(--border-light);
+  border-radius: 14px;
+  padding: 28px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.07);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.providerName {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.pricing {
+  background: var(--accent-light);
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 8px;
+  white-space: nowrap;
+}
+
+.description {
+  font-size: 14px;
+  color: var(--text-mid);
+  line-height: 1.7;
+  margin-bottom: 18px;
+  font-weight: 350;
+}
+
+.servicesLabel {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.servicesList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.serviceItem {
+  background: var(--bg-card-alt);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  padding: 4px 12px;
+  font-size: 12.5px;
+  color: var(--text-dim);
+  font-weight: 400;
+}
+
+.prosConsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 22px;
+  flex: 1;
+}
+
+.prosLabel {
+  font-size: 12px;
+  font-weight: 650;
+  color: var(--accent);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.consLabel {
+  font-size: 12px;
+  font-weight: 650;
+  color: var(--amber);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.proItem {
+  font-size: 13px;
+  color: var(--text-mid);
+  margin-bottom: 4px;
+  font-weight: 400;
+}
+
+.conItem {
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-bottom: 4px;
+  font-weight: 400;
+}
+
+.ctaButton {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(13, 124, 102, 0.25);
+  transition: all 0.2s;
+  font-family: var(--font-body);
+  text-align: center;
+  width: 100%;
+}
+
+.ctaButton:hover {
+  background: var(--accent-dark);
+  transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cardHeader {
+    flex-direction: column;
+  }
+
+  .prosConsGrid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}

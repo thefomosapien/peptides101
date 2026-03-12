@@ -1,11 +1,22 @@
+import { Helmet } from 'react-helmet-async';
 import { studies } from '../data/studies';
 import InfographicPlaceholder from '../components/InfographicPlaceholder';
+import CTABanner from '../components/CTABanner';
 
 export default function ResearchPage() {
   return (
-    <section className="section" style={{ maxWidth: 860 }}>
+    <section className="section page-enter" style={{ maxWidth: 860 }}>
+      <Helmet>
+        <title>Peptide Research — Real Studies from Medical Journals</title>
+        <meta name="description" content="Real peptide studies from real medical journals, summarized in plain English. Understand what the science actually says about popular peptides." />
+        <meta property="og:title" content="Peptide Research — Real Studies from Medical Journals" />
+        <meta property="og:description" content="Real peptide studies from real medical journals, summarized in plain English." />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="https://peptides101.info/research" />
+      </Helmet>
+
       <div className="text-center" style={{ marginBottom: 40 }}>
-        <h2 className="heading-2">The Research</h2>
+        <h1 className="heading-2">The Research</h1>
         <p className="subtitle" style={{ maxWidth: 500, margin: '0 auto' }}>
           Real studies from real medical journals. We summarize the findings so you
           don't have to read 40-page papers.
@@ -54,6 +65,8 @@ export default function ResearchPage() {
           </div>
         ))}
       </div>
+
+      <CTABanner />
     </section>
   );
 }
