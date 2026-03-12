@@ -1,0 +1,81 @@
+.footer {
+  border-top: 1px solid var(--border-light);
+  padding: 40px 24px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.disclaimer {
+  background: var(--red-light);
+  border: 1px solid #F0CDCD;
+  border-radius: 14px;
+  padding: 22px 24px;
+  margin-bottom: 32px;
+}
+
+.disclaimerLabel {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--red);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.disclaimerText {
+  font-size: 13px;
+  color: var(--text-mid);
+  line-height: 1.8;
+  margin: 0;
+  font-weight: 350;
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.brandIcon {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 13px;
+  color: white;
+  font-family: var(--font-display);
+}
+
+.copyright {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.links {
+  display: flex;
+  gap: 20px;
+}
+
+.links a {
+  font-size: 13px;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: 400;
+}
+
+.links a:hover {
+  color: var(--accent);
+}

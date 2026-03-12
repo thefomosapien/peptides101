@@ -1,0 +1,130 @@
+.card {
+  background: var(--bg-card);
+  border-radius: 14px;
+  border: 1px solid var(--border-light);
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  padding: 22px;
+}
+
+.card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.cardActive {
+  border-color: rgba(13, 124, 102, 0.25);
+  box-shadow: 0 4px 24px rgba(13, 124, 102, 0.08);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.icon {
+  font-size: 28px;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--bg-card-alt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.name {
+  font-size: 17px;
+  font-weight: 650;
+  color: var(--text);
+  margin: 0;
+}
+
+.aka {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 350;
+}
+
+.category {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-weight: 500;
+}
+
+.description {
+  font-size: 14px;
+  color: var(--text-mid);
+  line-height: 1.7;
+  margin: 0 0 14px;
+  font-weight: 350;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  background: var(--bg-card-alt);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  padding: 3px 10px;
+  font-size: 12px;
+  color: var(--text-dim);
+  font-weight: 400;
+}
+
+.expanded {
+  border-top: 1px solid var(--border-light);
+  padding-top: 16px;
+  margin-top: 16px;
+}
+
+.sectionLabel {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.considerations {
+  font-size: 13px;
+  color: var(--text-mid);
+  line-height: 1.7;
+  margin: 0 0 16px;
+  font-weight: 350;
+}
+
+.study {
+  background: var(--bg-card-alt);
+  border-radius: 10px;
+  padding: 10px 14px;
+  margin-bottom: 8px;
+  border-left: 3px solid var(--accent);
+}
+
+.studyTitle {
+  font-size: 13px;
+  color: var(--text);
+  font-weight: 550;
+}
+
+.studyJournal {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 3px;
+  font-weight: 350;
+}

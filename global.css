@@ -1,0 +1,276 @@
+/* ─── Design Tokens ─── */
+:root {
+  --bg: #FAFAF7;
+  --bg-warm: #F3F1EC;
+  --bg-card: #FFFFFF;
+  --bg-card-alt: #F7F6F2;
+
+  --accent: #0D7C66;
+  --accent-light: #E8F5F1;
+  --accent-mid: #1A9E80;
+  --accent-dark: #065446;
+
+  --orange: #E8723A;
+  --orange-light: #FEF3EC;
+  --blue: #3B6FC0;
+  --blue-light: #EDF2FA;
+  --red: #D94F4F;
+  --red-light: #FDF0F0;
+  --amber: #C6890E;
+  --amber-light: #FFF8E8;
+
+  --text: #1A1A1A;
+  --text-mid: #4A4A4A;
+  --text-dim: #7A7A7A;
+  --text-muted: #A3A3A3;
+
+  --border: #E5E2DB;
+  --border-light: #EDEBE6;
+
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Outfit', 'Helvetica Neue', sans-serif;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 14px;
+  --radius-xl: 18px;
+
+  --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.04);
+  --shadow-accent: 0 4px 16px rgba(13, 124, 102, 0.25);
+}
+
+/* ─── Reset & Base ─── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: var(--font-body);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ─── Utility Classes ─── */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.container--narrow {
+  max-width: 820px;
+}
+
+.container--mid {
+  max-width: 960px;
+}
+
+.container--wide {
+  max-width: 1100px;
+}
+
+.section {
+  padding: 60px 24px 80px;
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.section--wide {
+  max-width: 1100px;
+}
+
+.section--mid {
+  max-width: 960px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* ─── Typography ─── */
+.heading-1 {
+  font-family: var(--font-display);
+  font-size: clamp(38px, 5.5vw, 62px);
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.12;
+  letter-spacing: -1px;
+}
+
+.heading-2 {
+  font-family: var(--font-display);
+  font-size: 40px;
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: -0.5px;
+  margin-bottom: 10px;
+}
+
+.heading-3 {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.subtitle {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--text-dim);
+  font-weight: 350;
+}
+
+.body-text {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--text-mid);
+  line-height: 1.8;
+  font-weight: 350;
+}
+
+/* ─── Buttons ─── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 32px;
+  border-radius: var(--radius-md);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+  font-family: var(--font-body);
+}
+
+.btn--primary {
+  background: var(--accent);
+  color: white;
+  box-shadow: var(--shadow-accent);
+}
+
+.btn--primary:hover {
+  background: var(--accent-dark);
+}
+
+.btn--secondary {
+  background: white;
+  color: var(--accent);
+  border: 1.5px solid var(--border);
+}
+
+.btn--secondary:hover {
+  border-color: var(--accent);
+  background: var(--accent-light);
+}
+
+/* ─── Cards ─── */
+.card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.card--active {
+  border-color: rgba(13, 124, 102, 0.25);
+  box-shadow: 0 4px 24px rgba(13, 124, 102, 0.08);
+}
+
+/* ─── Badges ─── */
+.badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+}
+
+.badge--approved {
+  background: #E8F9F1;
+  color: #0D7C66;
+}
+
+.badge--not-approved {
+  background: var(--amber-light);
+  color: var(--amber);
+}
+
+.badge--type {
+  background: var(--accent-light);
+  color: var(--accent);
+}
+
+/* ─── Tag Pills ─── */
+.tag {
+  display: inline-block;
+  background: var(--bg-card-alt);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  padding: 3px 10px;
+  font-size: 12px;
+  color: var(--text-dim);
+  font-weight: 400;
+}
+
+.tag--accent {
+  background: var(--accent-light);
+  border-color: transparent;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 768px) {
+  .heading-2 {
+    font-size: 32px;
+  }
+
+  .section {
+    padding: 40px 16px 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+}
