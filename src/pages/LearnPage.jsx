@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { learnTopics } from '../data/learnTopics';
 import InfographicPlaceholder from '../components/InfographicPlaceholder';
+import CTABanner from '../components/CTABanner';
 
 function LearnCard({ topic, defaultOpen }) {
   const [open, setOpen] = useState(defaultOpen);
@@ -9,6 +11,7 @@ function LearnCard({ topic, defaultOpen }) {
     <div className={`card ${open ? 'card--active' : ''}`}>
       <button
         onClick={() => setOpen(!open)}
+        aria-expanded={open}
         style={{
           width: '100%', display: 'flex', alignItems: 'center', gap: 16,
           padding: '18px 22px', background: 'transparent', border: 'none',
@@ -55,9 +58,18 @@ function LearnCard({ topic, defaultOpen }) {
 
 export default function LearnPage() {
   return (
-    <section className="section">
+    <section className="section page-enter">
+      <Helmet>
+        <title>Peptides 101 — What Are Peptides & How Do They Work?</title>
+        <meta name="description" content="Learn the basics of peptide therapy — what peptides are, how they work in your body, their safety profile, and why they're one of the most talked-about breakthroughs in modern health." />
+        <meta property="og:title" content="Peptides 101 — What Are Peptides & How Do They Work?" />
+        <meta property="og:description" content="Learn the basics of peptide therapy — what peptides are, how they work in your body, their safety profile, and why they're one of the most talked-about breakthroughs in modern health." />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="https://peptides101.info/learn" />
+      </Helmet>
+
       <div className="text-center" style={{ marginBottom: 48 }}>
-        <h2 className="heading-2">Peptides 101</h2>
+        <h1 className="heading-2">Peptides 101</h1>
         <p className="subtitle" style={{ maxWidth: 460, margin: '0 auto' }}>
           Everything you need to know, explained like you're talking to a friend.
         </p>
@@ -67,6 +79,8 @@ export default function LearnPage() {
           <LearnCard key={i} topic={t} defaultOpen={i === 0} />
         ))}
       </div>
+
+      <CTABanner />
     </section>
   );
 }

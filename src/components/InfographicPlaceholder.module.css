@@ -68,3 +68,15 @@
   letter-spacing: 0.5px;
   position: relative;
 }
+
+.imageWrap {
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+}

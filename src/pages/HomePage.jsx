@@ -1,12 +1,22 @@
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import InfographicPlaceholder from '../components/InfographicPlaceholder';
 import CTABanner from '../components/CTABanner';
 
 export default function HomePage() {
   return (
     <>
+      <Helmet>
+        <title>Peptides101.info — Peptide Education, Simplified</title>
+        <meta name="description" content="Your free, no-nonsense guide to peptide therapy. Learn what peptides are, which ones might help you, and what the science actually says." />
+        <meta property="og:title" content="Peptides101.info — Peptide Education, Simplified" />
+        <meta property="og:description" content="Your free, no-nonsense guide to peptide therapy. Learn what peptides are, which ones might help you, and what the science actually says." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://peptides101.info" />
+      </Helmet>
+
       {/* Hero */}
-      <section style={{ padding: '80px 24px 60px', maxWidth: 880, margin: '0 auto', textAlign: 'center' }}>
+      <section className="page-enter" style={{ padding: '80px 24px 60px', maxWidth: 880, margin: '0 auto', textAlign: 'center' }}>
         <div className="badge badge--type" style={{ marginBottom: 28 }}>
           Your free, no-nonsense peptide education
         </div>
