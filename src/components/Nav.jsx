@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import styles from './Nav.module.css';
-import logo from '../../pep-logo.webp';
+import logo from '../../pep-logo-short.webp';
 
 const tabs = [
   { to: "/", label: "Home" },
@@ -27,7 +27,8 @@ export default function Nav() {
     <nav className={styles.nav}>
       <div className={styles.inner}>
         <NavLink to="/" className={styles.logo}>
-          <img src={logo} alt="Peptides101.info" className={styles.logoImg} />
+          <img src={logo} alt="Peptides101" className={styles.logoImg} />
+          <span className={styles.logoText}>Peptides 101</span>
         </NavLink>
 
         <button
