@@ -1,4 +1,5 @@
 import styles from './Footer.module.css';
+import squareLogo from '../../pep-logo-short.webp';
 
 export default function Footer() {
   return (
@@ -17,7 +18,7 @@ export default function Footer() {
       </div>
       <div className={styles.bottom}>
         <div className={styles.brand}>
-          <div className={styles.brandIcon}>P</div>
+          <img src={squareLogo} alt="Peptides101" className={styles.brandIcon} />
           <span className={styles.copyright}>
             © 2026 Peptides101.info · Educational resource · Not medical advice
           </span>

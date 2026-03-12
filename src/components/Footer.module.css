@@ -47,15 +47,8 @@
 .brandIcon {
   width: 28px;
   height: 28px;
-  border-radius: 8px;
-  background: var(--accent);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 800;
-  font-size: 13px;
-  color: white;
-  font-family: var(--font-display);
+  display: block;
+  object-fit: contain;
 }
 
 .copyright {
