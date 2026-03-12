@@ -123,14 +123,14 @@ system. This will be connected to a real email service later.
 
 ## PHASE 5: Infographic Integration
 
-### Prompt 11 — Make Infographic Placeholders Image-Ready
+### Prompt 11 — Generate All Infographics
 ```
-Update the InfographicPlaceholder component to accept an optional `imageSrc` prop.
-When imageSrc is provided, render an <img> tag with the image instead of the
-placeholder UI. The image should be responsive, have a border-radius matching the
-placeholder, and include descriptive alt text using the title prop. When imageSrc
-is NOT provided, show the current dashed-border placeholder. This way I can drop in
-images one at a time as I create them.
+This is a big one. Open and read the file INFOGRAPHICS_PROMPT.md in the project
+root. It contains the complete specification for generating all 8 SVG infographic
+components. Follow every instruction in that file exactly. The style reference is
+src/components/infographics/HeroInfographic.jsx — which already exists. You are
+creating 7 new infographic components to match its visual style, then wiring them
+all into the pages that currently show placeholders.
 ```
 
 ---
