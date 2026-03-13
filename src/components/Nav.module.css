@@ -28,6 +28,7 @@
   height: 40px;
   width: auto;
   display: block;
+  border-radius: var(--radius-md);
 }
 
 .logoText {
