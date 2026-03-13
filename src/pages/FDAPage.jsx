@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { peptides } from '../data/peptides';
 import InfographicPlaceholder from '../components/InfographicPlaceholder';
+import { FDAApprovalProcessInfographic, FDAComparisonInfographic } from '../components/infographics';
 import CTABanner from '../components/CTABanner';
 
 export default function FDAPage() {
@@ -26,12 +27,7 @@ export default function FDAPage() {
         </p>
       </div>
 
-      <InfographicPlaceholder
-        id="fda-approval-process"
-        title="How FDA Peptide Approval Works"
-        description="A step-by-step flowchart of the FDA approval process — from preclinical trials through Phase I, II, III to market approval — with cost and timeline data."
-        aspectRatio="16/7"
-      />
+      <FDAApprovalProcessInfographic />
 
       {/* Approved explainer */}
       <div style={{
@@ -73,12 +69,7 @@ export default function FDAPage() {
         </p>
       </div>
 
-      <InfographicPlaceholder
-        id="fda-comparison"
-        title="FDA-Approved vs. Non-Approved Peptides"
-        description="A side-by-side comparison chart showing the differences in testing, regulation, access, and safety data between approved and non-approved peptides."
-        aspectRatio="16/8"
-      />
+      <FDAComparisonInfographic />
 
       {/* Two-column list */}
       <div style={{

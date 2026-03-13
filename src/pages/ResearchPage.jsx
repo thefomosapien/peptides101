@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { studies } from '../data/studies';
 import InfographicPlaceholder from '../components/InfographicPlaceholder';
+import { ResearchTimelineInfographic } from '../components/infographics';
 import CTABanner from '../components/CTABanner';
 
 export default function ResearchPage() {
@@ -23,12 +24,7 @@ export default function ResearchPage() {
         </p>
       </div>
 
-      <InfographicPlaceholder
-        id="research-timeline"
-        title="Peptide Research Timeline"
-        description="A visual timeline from insulin's discovery in 1921 through 100+ FDA-approved peptides today, with major milestones highlighted."
-        aspectRatio="16/5"
-      />
+      <ResearchTimelineInfographic />
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
         {studies.map((s, i) => (

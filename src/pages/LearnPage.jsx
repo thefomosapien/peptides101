@@ -2,7 +2,14 @@ import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { learnTopics } from '../data/learnTopics';
 import InfographicPlaceholder from '../components/InfographicPlaceholder';
+import { HowPeptidesWorkInfographic, DeliveryMethodsInfographic, SafetySpectrumInfographic } from '../components/infographics';
 import CTABanner from '../components/CTABanner';
+
+const infographicComponents = {
+  'how-peptides-work': HowPeptidesWorkInfographic,
+  'delivery-methods': DeliveryMethodsInfographic,
+  'safety-spectrum': SafetySpectrumInfographic,
+};
 
 function LearnCard({ topic, defaultOpen }) {
   const [open, setOpen] = useState(defaultOpen);
@@ -42,14 +49,17 @@ function LearnCard({ topic, defaultOpen }) {
               {p}
             </p>
           ))}
-          {topic.infographic && (
-            <InfographicPlaceholder
-              id={topic.infographic.id}
-              title={topic.infographic.title}
-              description={topic.infographic.description}
-              aspectRatio="16/8"
-            />
-          )}
+          {topic.infographic && (() => {
+            const InfographicComponent = infographicComponents[topic.infographic.id];
+            return InfographicComponent ? <InfographicComponent /> : (
+              <InfographicPlaceholder
+                id={topic.infographic.id}
+                title={topic.infographic.title}
+                description={topic.infographic.description}
+                aspectRatio="16/8"
+              />
+            );
+          })()}
         </div>
       )}
     </div>

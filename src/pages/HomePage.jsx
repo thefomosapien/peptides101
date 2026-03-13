@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import InfographicPlaceholder from '../components/InfographicPlaceholder';
+import { HeroInfographic } from '../components/infographics';
 import CTABanner from '../components/CTABanner';
 
 export default function HomePage() {
@@ -54,12 +55,7 @@ export default function HomePage() {
           ))}
         </div>
 
-        <InfographicPlaceholder
-          id="hero-overview"
-          title="What Are Peptides? — Visual Overview"
-          description="An at-a-glance infographic showing amino acid chains, how peptides differ from proteins, and the key categories of therapeutic peptides."
-          aspectRatio="16/7"
-        />
+        <HeroInfographic />
       </section>
 
       {/* Quick preview cards linking to sections */}
