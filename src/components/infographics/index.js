@@ -1,4 +1,4 @@
-export { default as HeroInfographic } from './HeroInfographic';
+export { default as HeroOverviewInfographic } from './HeroOverviewInfographic';
 export { default as HowPeptidesWorkInfographic } from './HowPeptidesWorkInfographic';
 export { default as DeliveryMethodsInfographic } from './DeliveryMethodsInfographic';
 export { default as SafetySpectrumInfographic } from './SafetySpectrumInfographic';
