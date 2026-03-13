@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import { peptides, categories } from '../data/peptides';
 import PeptideCard from '../components/PeptideCard';
 import InfographicPlaceholder from '../components/InfographicPlaceholder';
+import { PeptideCategoriesInfographic } from '../components/infographics';
 import CTABanner from '../components/CTABanner';
 
 export default function GuidePage() {
@@ -33,12 +34,7 @@ export default function GuidePage() {
         </p>
       </div>
 
-      <InfographicPlaceholder
-        id="peptide-categories"
-        title="Peptide Categories at a Glance"
-        description="A visual map of all peptide categories — Recovery, Weight Management, Anti-Aging, Immune Support, Skin — with popular peptides in each."
-        aspectRatio="16/6"
-      />
+      <PeptideCategoriesInfographic />
 
       {/* Category filters */}
       <div style={{ display: 'flex', gap: 8, justifyContent: 'center', flexWrap: 'wrap', marginBottom: 32 }}>
