@@ -1,192 +1,72 @@
-import { useState, useEffect } from "react";
+export default function ResearchTimelineInfographic() {
+  const font = "'Outfit', sans-serif";
 
-// ─── Design tokens matching the Peptides101 site ───
-const C = {
-  accent: "#0D7C66",
-  accentLight: "#E8F5F1",
-  accentMid: "#1A9E80",
-  accentDark: "#065446",
-  orange: "#E8723A",
-  blue: "#3B6FC0",
-  amber: "#C6890E",
-  red: "#D94F4F",
-  rose: "#C4567A",
-  text: "#1A1A1A",
-  textMid: "#4A4A4A",
-  textDim: "#7A7A7A",
-  textMuted: "#A3A3A3",
-  bg: "#FAFAF7",
-  bgWarm: "#F3F1EC",
-  bgCard: "#FFFFFF",
-  border: "#E5E2DB",
-};
+  // Timeline: line at y=150, circles at x=90,190,290,390,490,590
+  // Cards alternate above (bottom y=112) and below (top y=172), h=58, w=96
+  const milestones = [
+    { x: 90,  above: true,  year: '1921', event: 'Insulin discovered',        op: 0.45 },
+    { x: 190, above: false, year: '1953', event: 'Oxytocin synthesized',       op: 0.55 },
+    { x: 290, above: true,  year: '1977', event: 'Recombinant DNA synthesis',  op: 0.65 },
+    { x: 390, above: false, year: '2005', event: '50 FDA approvals',           op: 0.75 },
+    { x: 490, above: true,  year: '2017', event: 'Semaglutide approved',       op: 0.88 },
+    { x: 590, above: false, year: '2024', event: '100+ approved',              op: 1.00 },
+  ];
 
-const milestones = [
-  { x: 100, above: true, year: "1921", event: "Insulin Discovered", desc: "First peptide isolated for medical use", color: "#94A3B8" },
-  { x: 236, above: false, year: "1953", event: "Oxytocin Synthesized", desc: "First peptide chemically synthesized", color: "#7A9EAF" },
-  { x: 372, above: true, year: "1977", event: "Somatostatin Produced", desc: "First peptide made via recombinant DNA", color: "#5A9E96" },
-  { x: 508, above: false, year: "2005", event: "50 FDA Approvals", desc: "Peptide drugs hit mainstream medicine", color: "#2D8E76" },
-  { x: 644, above: true, year: "2017", event: "Semaglutide Approved", desc: "GLP-1 revolution begins", color: C.accentMid },
-  { x: 780, above: false, year: "2024", event: "100+ Approved", desc: "Peptides now 10% of all drug approvals", color: C.accent },
-];
+  const TL_Y = 150;
+  const CARD_W = 96;
+  const CARD_H = 58;
+  const CARD_R = 8;
 
-function MilestoneNode({ x, color, delay }) {
-  return (
-    <g style={{ animation: `fadeNodeIn 0.5s ease-out ${delay}s both` }}>
-      <circle cx={x} cy={155} r={12} fill={color} opacity="0.15" />
-      <circle cx={x} cy={155} r={8} fill={color} />
-    </g>
-  );
-}
-
-function MilestoneCard({ x, above, year, event, desc, color, delay }) {
-  const cardW = 120;
-  const cardH = 62;
-  const cardX = x - cardW / 2;
-  const cardY = above ? 45 : 175;
-  const stemY1 = above ? cardY + cardH : 155;
-  const stemY2 = above ? 155 : cardY;
+  // teal color for all (with varying opacity)
+  const TEAL_FILL   = '#E1F5EE';
+  const TEAL_STROKE = '#0F6E56';
+  const TEAL_TEXT   = '#085041';
+  const TEAL_SUB    = '#0F6E56';
 
   return (
-    <g style={{ animation: `slideUp 0.5s ease-out ${delay}s both` }}>
-      {/* Stem */}
-      <line
-        x1={x} y1={stemY1} x2={x} y2={stemY2}
-        stroke={color} strokeWidth="1" opacity="0.4"
-      />
-      {/* Card background */}
-      <rect
-        x={cardX} y={cardY} width={cardW} height={cardH}
-        rx="10" ry="10" fill={C.bgCard} stroke={color} strokeWidth="1"
-      />
-      {/* Year */}
-      <text
-        x={x} y={cardY + 18}
-        textAnchor="middle" fill={color}
-        fontSize="15" fontFamily="'Fraunces', Georgia, serif" fontWeight="600"
-      >
-        {year}
-      </text>
-      {/* Event name */}
-      <text
-        x={x} y={cardY + 33}
-        textAnchor="middle" fill={C.text}
-        fontSize="11" fontFamily="'Outfit', sans-serif" fontWeight="600"
-      >
-        {event}
-      </text>
-      {/* Description */}
-      <text
-        x={x} y={cardY + 48}
-        textAnchor="middle" fill={C.textDim}
-        fontSize="9.5" fontFamily="'Outfit', sans-serif" fontWeight="350"
-      >
-        {desc}
-      </text>
-    </g>
-  );
-}
-
-export default function ResearchTimelineInfographic({ className }) {
-  return (
-    <div
-      className={className}
-      style={{
-        width: "100%",
-        borderRadius: 16,
-        border: `1px solid ${C.border}`,
-        overflow: "hidden",
-      }}
-    >
-      <link
-        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Outfit:wght@300;350;400;500;600;700&display=swap"
-        rel="stylesheet"
-      />
-
-      <style>{`
-        @keyframes fadeNodeIn {
-          from { opacity: 0; transform: scale(0.8); }
-          to   { opacity: 1; transform: scale(1); }
-        }
-        @keyframes slideUp {
-          from { opacity: 0; transform: translateY(12px); }
-          to   { opacity: 1; transform: translateY(0); }
-        }
-      `}</style>
-
-      <svg
-        viewBox="0 0 860 300"
-        width="100%"
-        style={{ display: "block" }}
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <defs>
-          <pattern id="dotGrid" width="20" height="20" patternUnits="userSpaceOnUse">
-            <circle cx="10" cy="10" r="0.6" fill={C.accent} opacity="0.08" />
-          </pattern>
-        </defs>
-
-        {/* Background */}
-        <rect width="860" height="300" fill={C.bg} />
-        <rect width="860" height="300" fill="url(#dotGrid)" />
-
-        {/* Title */}
-        <text
-          x="430" y="30"
-          textAnchor="middle" fill={C.text}
-          fontSize="20" fontFamily="'Fraunces', Georgia, serif" fontWeight="600"
-        >
-          A Century of Peptide Science
-        </text>
+    <div style={{ borderRadius: 12, overflow: 'hidden', border: '1px solid #E5E2DB', marginBottom: 24 }}>
+      <svg width="100%" viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg">
+        <rect width="680" height="300" fill="#FAFAF8" />
 
         {/* Timeline base line */}
-        <line
-          x1="80" y1="155" x2="780" y2="155"
-          stroke={C.border} strokeWidth="2" strokeLinecap="round"
-        />
+        <line x1="84" y1={TL_Y} x2="596" y2={TL_Y}
+          stroke="#E5E2DB" strokeWidth="2" strokeLinecap="round" />
 
-        {/* Milestone nodes */}
-        {milestones.map((m, i) => (
-          <MilestoneNode
-            key={`node-${i}`}
-            x={m.x}
-            color={m.color}
-            delay={0.1 + i * 0.12}
-          />
-        ))}
+        {milestones.map((m, i) => {
+          const cardX = m.x - CARD_W / 2;
+          const cardY = m.above ? TL_Y - CARD_H - 10 : TL_Y + 10;
+          const stemY1 = m.above ? cardY + CARD_H : TL_Y + 6;
+          const stemY2 = m.above ? TL_Y - 6 : cardY;
 
-        {/* Milestone cards */}
-        {milestones.map((m, i) => (
-          <MilestoneCard
-            key={`card-${i}`}
-            x={m.x}
-            above={m.above}
-            year={m.year}
-            event={m.event}
-            desc={m.desc}
-            color={m.color}
-            delay={0.25 + i * 0.12}
-          />
-        ))}
+          return (
+            <g key={i} opacity={m.op}>
+              {/* Connector stem */}
+              <line x1={m.x} y1={stemY1} x2={m.x} y2={stemY2}
+                stroke={TEAL_STROKE} strokeWidth="0.8" />
+
+              {/* Circle on timeline */}
+              <circle cx={m.x} cy={TL_Y} r="6" fill={TEAL_FILL} stroke={TEAL_STROKE} strokeWidth="1.5" />
+              <circle cx={m.x} cy={TL_Y} r="2.5" fill={TEAL_STROKE} />
+
+              {/* Card */}
+              <rect x={cardX} y={cardY} width={CARD_W} height={CARD_H} rx={CARD_R}
+                fill={TEAL_FILL} stroke={TEAL_STROKE} strokeWidth="0.5" />
+
+              {/* Year */}
+              <text x={m.x} y={cardY + 18} textAnchor="middle" dominantBaseline="central"
+                fontFamily={font} fontSize="13" fontWeight="500" fill={TEAL_TEXT}>{m.year}</text>
+
+              {/* Event (may wrap to 2 lines) */}
+              <text x={m.x} y={cardY + 38} textAnchor="middle" dominantBaseline="central"
+                fontFamily={font} fontSize="11" fontWeight="400" fill={TEAL_SUB}>{m.event}</text>
+            </g>
+          );
+        })}
 
         {/* Source */}
-        <text
-          x="430" y="290"
-          textAnchor="middle" fill={C.textMuted}
-          fontSize="9" fontFamily="'Outfit', sans-serif" fontWeight="400"
-          opacity="0.6"
-        >
-          Source: FDA, PubMed, Nature Reviews Drug Discovery
-        </text>
-
-        {/* Watermark */}
-        <text
-          x="845" y="293"
-          textAnchor="end" fill={C.accent}
-          fontSize="10" fontFamily="'Fraunces', Georgia, serif" fontWeight="500"
-          opacity="0.35"
-        >
-          peptides101.info
+        <text x="340" y="276" textAnchor="middle" dominantBaseline="central"
+          fontFamily={font} fontSize="11" fill="#888" opacity="0.5">
+          Sources: FDA.gov · PubMed · Nature Reviews Drug Discovery
         </text>
       </svg>
     </div>

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import InfographicPlaceholder from '../components/InfographicPlaceholder';
-import { HeroInfographic } from '../components/infographics';
+import { HeroOverviewInfographic } from '../components/infographics';
 import CTABanner from '../components/CTABanner';
 
 export default function HomePage() {
@@ -55,7 +55,7 @@ export default function HomePage() {
           ))}
         </div>
 
-        <HeroInfographic />
+        <HeroOverviewInfographic />
       </section>
 
       {/* Quick preview cards linking to sections */}
