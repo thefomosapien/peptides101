@@ -23,7 +23,7 @@ export default function GuidePage() {
   return (
     <section className="section section--wide page-enter">
       <Helmet>
-        <title>The Peptide Guide — {peptideCount}+ Peptides & {blendCount} Blends Explained</title>
+        <title>{`The Peptide Guide — ${peptideCount}+ Peptides & ${blendCount} Blends Explained`}</title>
         <meta name="description" content="An honest breakdown of the most popular peptides — what they do, what the research says, their FDA status, benefits, and important considerations." />
         <meta property="og:title" content={`The Peptide Guide — ${peptideCount}+ Peptides Explained`} />
         <meta property="og:description" content="An honest breakdown of the most popular peptides — what they do, what the research says, their FDA status, benefits, and important considerations." />
