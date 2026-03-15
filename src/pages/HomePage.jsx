@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import InfographicPlaceholder from '../components/InfographicPlaceholder';
 import { HeroOverviewInfographic } from '../components/infographics';
 import CTABanner from '../components/CTABanner';
+import { peptides } from '../data/peptides';
 
 export default function HomePage() {
   return (
@@ -63,7 +64,7 @@ export default function HomePage() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 18 }}>
           {[
             { to: '/learn', emoji: '📖', title: 'Peptides 101', desc: 'Start with the basics — what they are, how they work, and whether they\'re safe.' },
-            { to: '/guide', emoji: '🧬', title: 'Peptide Guide', desc: 'Browse 10 of the most popular peptides with honest breakdowns and real studies.' },
+            { to: '/guide', emoji: '🧬', title: 'Peptide Guide', desc: `Browse ${peptides.length}+ peptides and blends with honest breakdowns and real studies.` },
             { to: '/quiz', emoji: '🎯', title: 'Find Your Match', desc: 'Answer 4 questions and discover which peptides align with your health goals.' },
             { to: '/research', emoji: '📄', title: 'The Research', desc: 'Real studies from real medical journals, summarized in plain English.' },
             { to: '/fda', emoji: '✅', title: 'FDA Status', desc: 'Which peptides are approved, which aren\'t, and what that actually means for you.' },

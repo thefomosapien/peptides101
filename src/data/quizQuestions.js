@@ -33,4 +33,13 @@ export const quizQuestions = [
       { text: "Mental clarity & focus", tags: ["performance"] },
     ],
   },
+  {
+    question: "Are you interested in any specific area?",
+    options: [
+      { text: "Weight loss & body composition", tags: ["weight", "metabolic"] },
+      { text: "Longevity & cellular health", tags: ["anti-aging", "metabolic"] },
+      { text: "Athletic performance & recovery", tags: ["muscle", "performance", "recovery"] },
+      { text: "Hormonal health & vitality", tags: ["performance"] },
+    ],
+  },
 ];

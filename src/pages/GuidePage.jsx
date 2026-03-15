@@ -13,14 +13,19 @@ export default function GuidePage() {
 
   const filtered = filter === 'all'
     ? peptides
-    : peptides.filter((p) => p.category === filter);
+    : filter === 'Blends & Stacks'
+      ? peptides.filter((p) => p.isBlend)
+      : peptides.filter((p) => p.category === filter && !p.isBlend);
+
+  const peptideCount = peptides.filter((p) => !p.isBlend).length;
+  const blendCount = peptides.filter((p) => p.isBlend).length;
 
   return (
     <section className="section section--wide page-enter">
       <Helmet>
-        <title>The Peptide Guide — 10 Most Popular Peptides Explained</title>
+        <title>The Peptide Guide — {peptideCount}+ Peptides & {blendCount} Blends Explained</title>
         <meta name="description" content="An honest breakdown of the most popular peptides — what they do, what the research says, their FDA status, benefits, and important considerations." />
-        <meta property="og:title" content="The Peptide Guide — 10 Most Popular Peptides Explained" />
+        <meta property="og:title" content={`The Peptide Guide — ${peptideCount}+ Peptides Explained`} />
         <meta property="og:description" content="An honest breakdown of the most popular peptides — what they do, what the research says, their FDA status, benefits, and important considerations." />
         <meta property="og:type" content="article" />
         <meta property="og:url" content="https://peptides101.info/guide" />
@@ -29,7 +34,7 @@ export default function GuidePage() {
       <div className="text-center" style={{ marginBottom: 40 }}>
         <h1 className="heading-2">The Peptide Guide</h1>
         <p className="subtitle" style={{ maxWidth: 520, margin: '0 auto' }}>
-          An honest breakdown of the most popular peptides — what they do, what the
+          An honest breakdown of {peptideCount}+ peptides and {blendCount} popular blends — what they do, what the
           research says, and their FDA status.
         </p>
       </div>
@@ -54,6 +59,43 @@ export default function GuidePage() {
           </button>
         ))}
       </div>
+
+      {/* Blends & Stacks intro */}
+      {filter === 'Blends & Stacks' && (
+        <div style={{
+          textAlign: 'center',
+          padding: '20px 28px',
+          marginBottom: 28,
+          background: 'var(--accent-light)',
+          borderRadius: 14,
+          maxWidth: 680,
+          margin: '0 auto 28px',
+          border: '1px solid rgba(13,124,102,0.15)',
+        }}>
+          <h2 style={{
+            fontFamily: 'var(--font-display)',
+            fontSize: 20,
+            fontWeight: 500,
+            color: 'var(--text)',
+            marginBottom: 10,
+          }}>
+            Blends & Stacks
+          </h2>
+          <p style={{
+            fontSize: 14,
+            color: 'var(--text-mid)',
+            lineHeight: 1.7,
+            margin: 0,
+            fontWeight: 350,
+          }}>
+            Peptide blends combine two or more peptides in a single preparation,
+            designed to work synergistically. Stacks are named protocols using
+            multiple peptides together. These are increasingly popular but also more
+            complex — always consult a physician before starting any multi-peptide
+            protocol.
+          </p>
+        </div>
+      )}
 
       {/* Peptide grid */}
       <div style={{
